@@ -2,9 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Home Page</title>
+  <script src="jquery.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="movie.js"></script>
+  <link rel="stylesheet" href="movie.css">
 </head>
+<header>
+  <nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">Movie App</span>
+  </nav>
+
+  <input id="movie" placeholder="Enter Movie" name="search">
+  <button id= "buttonMovie">search</button>
+
+</header>
+
 <body>
-$END$
+
+
+
+
+
+<div class="container">
+
+  <div class="card-deck">
+  </div>
+
+</div>
+
+
+
+
+<div id="content">
+
+</div>
+
+
+
+
+<div id="loading">
+  <p img=""> Please Wait</p>
+</div>
+
+
+
+
+<form action="./cgi-bin/my_script.py" method="post" enctype="multipart/form-data" name="fname">
+  <input type="submit" id="submit" value="Submit" />
+</form>
+
+<div id="editModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="container">
+            <label for="title"> Change Title</label><input id="title" type="text"><br>
+            <label for="imagePoster"> Image URL</label><input id="imagePoster" type="text" src=""><br>
+            <label for="plot"> Change Plot</label><input id="plot" type="text"><br>
+            <label for="actor"> Change Actors</label><input id="actor" type="text"><br>
+            <label for="director"> Change Director</label><input id="director" type="text"><br>
+            <label for="genre"> Change Genre</label><input id="genre" type="text"><br>
+            <label for="year"> Change Year</label><input id="year" type="text"><br>
+            <label for="rating"> Change Rating</label><input id="rating" type="text">
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="saveChanges" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="addButton" class="btn btn-primary">Add Movie</button>
+
+<div id="addModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="container">
+            <label for="title"> Change Title</label><input id="addTitle" type="text"><br>
+            <label for="addPoster"> Image URL</label><input id="addPoster" type="text" src=""><br>
+            <label for="plot"> Change Plot</label><input id="addPlot" type="text"><br>
+            <label for="actor"> Change Actors</label><input id="addActor" type="text"><br>
+            <label for="director"> Change Director</label><input id="addDirector" type="text"><br>
+            <label for="genre"> Change Genre</label><input id="addGenre" type="text"><br>
+            <label for="year"> Change Year</label><input id="addYear" type="text"><br>
+            <label for="rating"> Change Rating</label><input id="addRating" type="text">
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="addMovie" class="btn btn-primary">Add Movie</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
+
+
+<footer>
+
+</footer>
 </html>

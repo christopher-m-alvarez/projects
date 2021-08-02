@@ -1,0 +1,56 @@
+body {
+    background-image: url("img/movie.jpeg");
+
+    /*font-family: "Hiragino Kaku Gothic Pro", fantasy ;*/
+    /*font-size: 17px;*/
+
+}
+
+.card {
+    size: 10px 10px;
+    background-color: black;
+}
+.card-body {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+.card-header {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: black ;
+    color: white;
+    transition:0.8s
+}
+
+.list-group{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+
+}
+
+#button2 {
+    background-color: white;
+    transition:0.5s;
+    float: right ;
+}
+
+#button1 {
+    float: right ;
+    background-color: white;
+    transition:0.5s
+}
+#button1:hover {
+    background-color: green;
+}
+#button2 {
+    background-color: white;
+    transition:0.8s;
+    float: right ;
+}
+#button2:hover {
+    background-color: red;
+}
+
