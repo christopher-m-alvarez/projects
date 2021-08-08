@@ -23,6 +23,33 @@ function AJAX(url, method = "GET", data){
 }
 
 
+function addMovieFromAPI(){
+    fetch("http://www.omdbapi.com/?apikey="+ MovieAPI +"&t="+ $("#movie").val())
+        .then(res => res.json()
+            .then(res => {
+                console.log(res)
+
+
+                const newMovie = {
+                plot:res.Plot,
+                poster:res.Poster,
+                title:res.Title,
+                actor:res.Actors,
+                director:res.Director,
+                genre:res.Genre,
+                year:res.Year,
+                rating:res.Ratings[1].Value
+            }
+            // console.log(res.Ratings)
+            addMovieTwo(newMovie)
+
+            }))
+
+}
+
+
+
+
 
 function getAllMovies(){
     AJAX(url).then(responseData => {console.log(responseData)
@@ -38,7 +65,7 @@ function getAllMovies(){
                    
                     <div class="card-body">
 
-                        <img src= '${movie.poster}', height="400"></li>
+                        <img src= '${movie.poster}'height="400"></li>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Description: ${movie.plot}</li>
@@ -99,6 +126,13 @@ function addEventListeners(){
         const movieIdToDelete = $(this).attr("data-id");
         deleteMovie(movieIdToDelete)
     });
+
+    $('#buttonMovie').click(function(e){
+        e.preventDefault()
+        addMovieFromAPI()
+        getAllMovies()
+    })
+
 }
 
 
@@ -117,24 +151,27 @@ function deleteMovie(movieID){
     AJAX(`${url}/${movieID}`,"delete").then(getAllMovies);
 }
 
-
-
-
-
-function addMovie() {
-    AJAX(`${url}`, "POST", {
-        plot:$('#addPlot').val(),
-        poster:$('#addPoster').val(),
-        title:$('#addTitle').val(),
-        actor:$('#addActor').val(),
-        director:$('#addDirector').val(),
-        genre:$('#addGenre').val(),
-        year:$('#addYear').val(),
-        rating:$('#addRating').val(),
-
-    })
+function addMovieTwo(MovieFromAPI){
+    AJAX(`${url}`, "POST", MovieFromAPI)
         .then(responseData => console.log(responseData))
 }
+
+
+
+// function addMovie() {
+//     AJAX(`${url}`, "POST", {
+//         plot:$('#addPlot').val(),
+//         poster:$('#addPoster').val(),
+//         title:$('#addTitle').val(),
+//         actor:$('#addActor').val(),
+//         director:$('#addDirector').val(),
+//         genre:$('#addGenre').val(),
+//         year:$('#addYear').val(),
+//         rating:$('#addRating').val(),
+//
+//     })
+//         .then(responseData => console.log(responseData))
+// }
 
 
 function editMovie(movieID) {

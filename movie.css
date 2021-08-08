@@ -5,9 +5,14 @@ body {
     /*font-size: 17px;*/
 
 }
+.card-deck{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .card {
-    size: 10px 10px;
+
+    width: 400px;
     background-color: black;
 }
 .card-body {
